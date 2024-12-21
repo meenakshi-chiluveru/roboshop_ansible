@@ -8,9 +8,9 @@
       state: present
   
 - name: remove html default content
-    ansible.builtin.file:
-      path: /usr/share/nginx/html/*
-      state: absent
+  ansible.builtin.file:
+    path: /usr/share/nginx/html/*
+    state: absent
 
   - name: createhtml default content
     ansible.builtin.file:
