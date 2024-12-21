@@ -64,7 +64,7 @@
     register: schema
 
   - name: print output
-    ansible.builtin.debus:
+    ansible.builtin.debug:
       msg: "schema output: {{schema}}"
   
   - name: load cities data
