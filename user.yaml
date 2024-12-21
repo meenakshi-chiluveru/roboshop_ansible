@@ -53,7 +53,7 @@
 
   - name: Copy mongodb repo
     ansible.builtin.copy:
-      src: mongo.repo
+      src: mongodb.repo
       dest: /etc/yum.repos.d/mongodb.repo
 
   - name: Install mongodb client
@@ -62,12 +62,12 @@
       state: present
 
   - name: get the users count
-    ansible.builtin.command:  mongo --host mongodb.daws80.online --quiet --eval 'db = db.getSiblingDB("users"); db.user.count()'
+    ansible.builtin.command:  mongo --host mongodb.daws76s.online --quiet --eval 'db = db.getSiblingDB("users"); db.users.count()'
     register: user_count
 
   # - name: print the count
   #   ansible.builtin.debug:
-  #     msg: "product count: {{product_count}}"
+  #     msg: "product count: {{user_count}}"
 
   - name: load user data
     ansible.builtin.command: mongo --host mongodb.daws80.online < /app/schema/user.js
