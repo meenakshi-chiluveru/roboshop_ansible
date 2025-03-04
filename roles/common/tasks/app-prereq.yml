@@ -6,16 +6,25 @@
 - name: Remove old content
   ansiblie.builtin.file:
     path: "{{ app_path }}"
+    state: absent
 
 
 - name: Create App Directory
-mkdir ${app_path}
+  ansiblie.builtin.file:
+    psth: "{{ app_path }}"
+    state:
+
 
 
 - name: Download Application Content
-curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}-v3.zip
+  ansible.builtin.get.url:
+    url: https://roboshop-artifacts.s3.amazonaws.com/${component}-v3.zip
+    dest: /tmp/{{component}}.zip
 
 
-- name: Extract Application Content
-cd ${app_path}
-unzip /tmp/${component}.zip
+- name: download & Extract Application Content
+  ansible.builtin.unarchive:
+    src: https://roboshop-artifacts.s3.amazonaws.com/${component}-v3.zip
+    dest: "{{ app_path }}"
+    remote_src: yes
+
