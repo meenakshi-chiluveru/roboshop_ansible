@@ -11,8 +11,8 @@
 
 - name: Create App Directory
   ansiblie.builtin.file:
-    psth: "{{ app_path }}"
-    state:
+    path: "{{ app_path }}"
+    state: directory
 
 
 
