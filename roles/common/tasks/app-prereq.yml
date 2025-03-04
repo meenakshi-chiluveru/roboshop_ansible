@@ -10,7 +10,7 @@
 
 
 - name: Create App Directory
-  ansiblie.builtin.file:
+  ansible.builtin.file:
     path: "{{ app_path }}"
     state: directory
 
