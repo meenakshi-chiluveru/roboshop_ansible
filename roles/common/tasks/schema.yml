@@ -13,5 +13,5 @@
 
 
 - name: Load Master Data
-  ansible.builtin.debug: mongosh --host mongo.dev.rdevopsb80.online </app/db/master-data.js
+  ansible.builtin.debug: mongosh --host mongo.dev.daws80.online </app/db/master-data.js
 
